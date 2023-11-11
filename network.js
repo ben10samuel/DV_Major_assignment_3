@@ -49,8 +49,7 @@ function simulate(data,svg)
         .enter()
         .append("g")
         .attr("class",function(d){
-            //return treatAuthorsClass(d.Name)})
-    return d.Country})
+                return d.Country})
 
         .on ("mouseover",function (d,data){
             //make sure all items are inactive now
@@ -77,7 +76,6 @@ function simulate(data,svg)
 
             if (node_degree[d.id]!==undefined){
                 return scale_radius(node_degree[d.id]);
-
             }
             else{
                 return scale_radius(0);
