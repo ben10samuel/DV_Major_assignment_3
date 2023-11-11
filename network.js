@@ -66,8 +66,6 @@ function simulate(data,svg)
             d3.select("#Paper_Title").text("");
             d3.selectAll(".inactive").classed("inactive",false);
         })
-    // Example function to handle mouse click for displaying author details
-
 
     // Attach event listener to node elements for mouse click
         .on("click", function (event, d) {
@@ -125,6 +123,7 @@ function simulate(data,svg)
         .on("start", dragstarted)
         .on("drag", dragged)
         .on("end", dragended));
+    
     // Reheat the simulation when drag starts, and fix the subject position.
     function dragstarted(event) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -137,8 +136,6 @@ function simulate(data,svg)
         event.subject.fx = event.x;
         event.subject.fy = event.y;
     }
-
-    // Restore the target alpha so the simulation cools after dragging ends.
     // Unfix the subject position now that it’s no longer being dragged.
     function dragended(event) {
         if (!event.active) simulation.alphaTarget(0);
