@@ -136,7 +136,7 @@ function simulate(data,svg)
     }
     // Unfix the subject position now that it’s no longer being dragged.
     function dragended(event) {
-        if (!event.active && ForceSimulation.alpha() < 0.01) ForceSimulation.alphaTarget(0);
+        if (!event.active) ForceSimulation.alphaTarget(0);
         event.subject.fx = null;
         event.subject.fy = null;
     }
