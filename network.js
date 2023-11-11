@@ -124,7 +124,7 @@ function simulate(data,svg)
     
     // Reheat the simulation when drag starts, and fix the subject position.
     function dragstarted(event) {
-        if (!event.active) simulation.alphaTarget(0.3).restart();
+        if (!event.active) ForceSimulation.alphaTarget(Math.min(0.3, 0.1 + ForceSimulation.alpha())).restart();
         event.subject.fx = event.subject.x;
         event.subject.fy = event.subject.y;
     }
@@ -136,7 +136,7 @@ function simulate(data,svg)
     }
     // Unfix the subject position now that it’s no longer being dragged.
     function dragended(event) {
-        if (!event.active && simulation.alpha() < 0.01) simulation.alphaTarget(0);
+        if (!event.active && ForceSimulation.alpha() < 0.01) ForceSimulation.alphaTarget(0);
         event.subject.fx = null;
         event.subject.fy = null;
     }
